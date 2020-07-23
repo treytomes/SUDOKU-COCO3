@@ -7,7 +7,7 @@ It takes about 3.5 minutes to create a grid.  Use CONT at the break to continue 
 
 ![](screenshot01.png)
 
-It takes *much* longer to find the right numbers to remove from the grid.  I maxed out the overclock parameter in Vcc and the program has still been running all afternoon, steadily removing one cell after another.  But it works.
+It takes *much* longer to find the right numbers to remove from the grid.  I maxed out the overclock parameter in Vcc and the program has still been running all afternoon, steadily removing one cell after another.  But it works.  Each successive iteration takes a little bit longer than the one before.
 
 The FILLGRID: and SOLVEGRID: subroutines both use backtracking algorithms to figure out the grid.  This is tricky in Extended Color Basic, where all of the variables are globally scoped:  The run context was being clobbered on each recursive call to the subroutine.  I solved this using the ST/SP variables to implement an integer stack.  Before allowing a subroutine to call itself I push the current state of the subroutine onto the stack, then pop it off the stack just after the GOSUB.  This took some trial and error to figure out how big to make ST, and it could probably be made a bit smaller.
 
