@@ -9,9 +9,6 @@ It takes about 3.5 minutes to create a grid.
 
 The FILLGRID: and SOLVEGRID: subroutines both use backtracking algorithms to figure out the grid.  This is tricky in Extended Color Basic, where all of the variables are globally scoped:  The run context was being clobbered on each recursive call to the subroutine.  I solved this using the ST/SP variables to implement an integer stack.  Before allowing a subroutine to call itself I push the current state of the subroutine onto the stack, then pop it off the stack just after the GOSUB.  This took some trial and error to figure out how big to make ST, and it could probably be made a bit smaller.
 
-**TODO:** It might be more more efficient to use some PEEK/POKE commands along with the stack pointer instead of using an array.
-**TODO:** This algorithm runs fairly quickly in Python.  How fast will it run in 6809 assembly?
-
 ## Subroutines
 
 | Name                | Line # |Purpose
@@ -42,3 +39,10 @@ The FILLGRID: and SOLVEGRID: subroutines both use backtracking algorithms to fig
 | SF   | A shuffled array of digits; created by SHUFFLE:.
 | T    | Used for a true/false return value from subroutines.  0=false, 1=true.
 | CT   | Used to count the number of solutions to a grid.
+
+## TODO
+
+* It might be more more efficient to use some PEEK/POKE commands along with the stack pointer instead of using an array.
+* This algorithm runs fairly quickly in Python.  How fast will it run in 6809 assembly?
+* If I can get the runtime down to something reasonable, I can add a UI and turn this into an actual game.
+
