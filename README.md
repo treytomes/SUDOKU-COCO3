@@ -3,7 +3,7 @@ A Sudoku puzzle generator written in Extended Color Basic.
 
 This program was tested in VCC 2.0.1e.
 
-It takes about 3.5 minutes to create a grid.
+It takes about 3.5 minutes to create a grid.  Use CONT at the break to continue with puzzle generation.
 
 ![](screenshot01.png)
 
